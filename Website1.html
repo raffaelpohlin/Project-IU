@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+    <title>Website CO²</title>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script defer src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <script defer src="script.js"></script>
+</head>
+
+<style>
+
+header {
+    background-color: rgb(194, 223, 194);
+    flex-direction: row;
+    align-items: center;
+}
+
+header div {justify-content:space-between;}
+
+header .greenway {
+    width: 200px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+header div p {
+    cursor: default;
+}
+
+
+
+    main {
+        display: flex;
+
+
+    }
+
+    main nav {
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 15%;
+        padding: 0%;
+
+    }
+
+    main nav ul {
+        padding: 0%;
+        flex-direction: column;
+    }
+
+    main nav li {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    main div content {
+        width: 85%;
+        flex-wrap: wrap;
+        padding: 0%;
+    }
+
+    section {
+        border: 1ßx solid white;
+        border-radius: 0.5em;
+        margin: 1em;
+        padding: 1em;
+    }
+
+    footer {
+    background-color: rgb(194, 223, 194);
+    flex-direction: row;
+    bottom: 0px;
+    }
+
+footer div {justify-content: center;}
+
+    footer .linkedin {
+        width: 50px;
+        margin: 5px;
+    }
+    
+    footer .facebook {
+        width: 50px;
+        margin: 5px;
+    }
+
+    footer .instagram {
+        width: 50px;
+        margin: 5px;
+    }
+
+    footer .contact {
+        width: 50px;
+        margin: 5px;
+}
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    header div {
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content:center;
+    }
+
+    main {
+        display:inline
+    }
+
+    main nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    main nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    main div content{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+
+    }
+    
+    footer div {
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items:center;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+    @media screen and (max-width: 768px) {
+    header div {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    main {
+        display:inline
+    }
+
+    main nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    main nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    main div content{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+
+    }
+
+#list   {
+    display:block;
+
+    }
+    footer div {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        
+    }
+    
+}
+
+</style>
+
+<body>
+
+    <header>
+        <div class="d-flex">
+                <div class="p-2 m-1">
+                    <img class="greenway" src="GreenWay.png" alt="Greenway">
+                </div>
+                <div class="p-2 m-2">
+                    <p class="fs-1 fw-bold">Greenway Foundation Inc.</p>
+                </div>
+                <div class="p-2 m-3">
+                    <form>
+                        <input type="search" class="form-control" name="suche" placeholder="Suche">
+                    </form>
+                </div>
+        </div>
+    </header>
+
+<main>
+    <nav class="p-2">
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">Leistungen</a></li>
+            <li class="nav-item"><a class="nav-link" href="projects.html">Projekte</a></li>
+            <li class="nav-item"><a class="nav-link" href="apply.html">Bewirb dich!</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="m-3">
+        <section class="list-group">
+            <h1 class="list-group-item mb-0">Willkommen bei Greenway Foundation</h1>
+            <p class="list-group-item">
+                Unser Einsatz für eine nachhaltige Zukunft.</p>
+            </p>
+        </section>
+        <section class="list-group">
+            <h2 class="list-group-item mb-0">Welches Land produziert am meisten CO²?</h2>
+            <p class="list-group-item">
+                Aufstellung der Top-Produzenten von CO²-Emissionen.</p>
+
+                <table id="list" class="table table-striped" aria-label="table" style="border: 2px; ">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th>Land</th>
+                            <th>Unternehmen</th>
+                            <th>CO²-Emissionen in Mrd. Tonnen</th>
+                        </tr>
+                    </thead>
+                    <tbody style="text-align: center;">
+                        <tr>
+                            <td>USA</td>
+                            <td>Chevron</td>
+                            <td>43.350</td>
+                        </tr>
+                        <tr>
+                            <td>Russland</td>
+                            <td>Gazprom</td>
+                            <td>43.230</td>
+                        </tr>
+                        <tr>
+                            <td>USA</td>
+                            <td>ExxonMobil</td>
+                            <td>41.940</td>
+                        </tr>
+                        <tr>
+                            <td>Iran</td>
+                            <td>National Iranian Oil Co.</td>
+                            <td>35.658</td>
+                        </tr>
+                        <tr>
+                            <td>GB</td>
+                            <td>BP</td>
+                            <td>34.015</td>
+                        </tr>
+                        <tr>
+                            <td>Niederlande</td>
+                            <td>Royal Dutch Shell</td>
+                            <td>31.948</td>
+                        </tr>
+                        <tr>
+                            <td>Indien</td>
+                            <td>Coal India</td>
+                            <td>23.124</td>
+                        </tr>
+                        <tr>
+                            <td>Mexiko</td>
+                            <td>Permex</td>
+                            <td>22.645</td>
+                        </tr>
+                        <tr>
+                            <td>Venezuela</td>
+                            <td>Petroleos de Venezuela</td>
+                            <td>15.745</td>
+                        </tr>
+                        <tr>
+                            <td>China</td>
+                            <td>PetroChina</td>
+                            <td>15.632</td>
+                        </tr>
+                        <tr>
+                            <td>USA</td>
+                            <td>Peabody Energy</td>
+                            <td>15.385</td>
+                        </tr>
+                        <tr>
+                            <td>USA</td>
+                            <td>ChonocoPhilips</td>
+                            <td>15.229</td>
+                        </tr>
+                        <tr>
+                            <td>UAE</td>
+                            <td>Abu Dhabi National Oil Co.</td>
+                            <td>13.840</td>
+                        </tr>
+                        <tr>
+                            <td>Kuweit</td>
+                            <td>Kuwait Petroleum Corp.</td>
+                            <td>13.479</td>
+                        </tr>
+                        <tr>
+                            <td>Irak</td>
+                            <td>Iraq National Oil Co.</td>
+                            <td>12.596</td>
+                        </tr>
+                        <tr>
+                            <td>Frankreich</td>
+                            <td>Total SA</td>
+                            <td>12.352</td>
+                        </tr>
+                        <tr>
+                            <td>Algerien</td>
+                            <td>Sonatrach</td>
+                            <td>12.302</td>
+                        </tr>
+                        <tr>
+                            <td>Australien</td>
+                            <td>BHPO Billiton</td>
+                            <td>9.802</td>
+                        </tr>
+                        <tr>
+                            <td>Brasilien</td>
+                            <td>Petrobras</td>
+                            <td>8.676</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </section>
+    </div>
+</main>
+
+<footer>
+    <div class="d-flex">
+        <div class="py-3 my-2">
+            <ul class="nav">
+                <li class="nav-item pt-2"><a class="nav-link" href="privacy.html">Datenschutz</a></li>
+                <li class="nav-item pt-2"><a class="nav-link" href="imprint.html">Impressum</a></li>
+            </ul>
+        </div>
+        <div class="py-3 my-2">
+            <ul class="nav">
+                <li class="nav-item mx-1" class="nav-link">
+                <a class="lk" aria-current="page" href="https://www.linkedin.com/WebAppStartup">
+                    <img class="linkedin" src="Linkedin.png" alt="Linkedin"></a>
+                </li>
+                <li class="nav-item mx-1" class="nav-link">
+                <a class="fb" aria-disabled="true" href="https://www.facebook.com/WebAppStartup">
+                    <img class="facebook" src="facebook.png" alt="Facebook"></a>
+                </li>
+                <li class="nav-item mx-1" class="nav-link">
+                <a class="ig" aria-disabled="true" href="https://www.instagram.com/WebAppStartup">
+                    <img class="instagram" src="instagram.png" alt="Facebook"></a>
+                </li>
+                <li class="nav-item mx-1" class="nav-link">
+                <a class="ph" aria-disabled="true" href="contact.html">
+                    <img class="contact" src="phone.png" alt="Kontakt"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</body>
